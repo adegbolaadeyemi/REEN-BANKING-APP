@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <title>Reem Bank</title>
+    <link rel="icon" href="./asset/logo (4).png" />
+  </head>
+  <body>
+    <section class="bg-[#D4F3E7]">
+      <div class="md:flex md:flex-row flex flex-col items-center">
+        <div class="md:px-20 px-3 mt-25 md:mt-30 md:w-[52%]">
+          <img src="./asset/logo (3).png" alt="" class="mb-25" />
+          <h2 class="text-2xl font-bold text-[#33B786] mb-2">Reen Bank</h2>
+          <h3 class="text-6xl line-height:2 font-semibold">Welcome Back</h3>
+          <p class="mt-10 text-gray-700 text-xl">
+            Enter Your Details to login to your Banking Dashboard again!
+          </p>
+          <div class="flex mt-6 md:mt-35 mb-10 gap-2">
+            <img src="./asset/facebook 1.png" alt="" class="h-7" />
+            <img src="./asset/instagram 1.png" alt="" class="h-7" />
+            <img src="./asset/twitter 1.png" alt="" class="h-7" />
+          </div>
+        </div>
+        <!-- Login Form -->
+        <form
+          id="loginForm"
+          class="bg-[#FFFFFF] md:p-10 p-12 md:w-[40%] rounded-4xl mb-10 shadow-lg"
+        >
+          <h1 class="text-2xl font-semibold mb-10 text-[#33B786]">Login</h1>
+
+          <span>Email</span>
+          <div
+            class="w-full h-14 flex justify-between items-center border border-gray-200 px-3 rounded-2xl mb-8 bg-white"
+          >
+            <input
+              id="loginEmail"
+              type="email"
+              required
+              class="outline-none w-full"
+              placeholder="Enter your Email"
+            />
+            <img src="./asset/fi-rr-envelope.png" alt="" class="h-4 pr-2" />
+          </div>
+
+          <span>Password</span>
+          <div
+            class="w-full h-14 flex justify-between items-center border-gray-200 border px-3 rounded-2xl mb-8 bg-white"
+          >
+            <input
+              id="loginPassword"
+              type="password"
+              required
+              class="outline-none w-full"
+              placeholder="Enter your Password"
+            />
+            <img src="./asset/fi-rr-lock.png" alt="" class="h-4 pr-2" />
+          </div>
+
+          <button
+            type="submit"
+            class="w-full h-12 text-white font-medium hover:bg-green-500 bg-[#33B786] mt-8 rounded-2xl transition shadow-md"
+          >
+            Login
+          </button>
+
+          <h1 class="mt-5 text-gray-400">
+            Don't Have an Account?
+            <a href="./reg.html" class="text-[#33B786] font-semibold">
+              Register.</a
+            >
+          </h1>
+        </form>
+
+        <!-- Success Popup Modal (Hidden by default using 'hidden') -->
+        <div
+          id="successModal"
+          class="hidden fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center z-50 p-4"
+        >
+          <div
+            class="bg-white md:p-12 p-6 md:w-[42%] w-full rounded-4xl shadow-2xl flex flex-col items-center text-center relative"
+          >
+            <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mb-8">
+              Your account has been logged in Successfully!
+            </h2>
+
+            <a href="">
+              <button
+                id=""
+                class="w-full h-14 text-white font-medium hover:bg-green-600 bg-[#33B786] rounded-2xl transition text-lg shadow-md"
+              >
+                Go to Dashboard
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="./log-in.js"></script>
+  </body>
+</html>
