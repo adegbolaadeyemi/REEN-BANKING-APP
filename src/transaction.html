@@ -1,0 +1,350 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <title>Reen Bank</title>
+    <link rel="icon" href="./asset/logo (4).png" />
+  </head>
+  <body>
+    <section class="hidden md:block">
+      <!-- NAV BAR -->
+      <nav class="flex md:gap-45 md:p-10">
+        <div class="flex md:gap-90">
+          <div class="flex items-center md:gap-15">
+            <img src="./asset/logo (3).png" alt="" class="md:h-15" />
+            <h3 class="font-semibold text-3xl">Transactions</h3>
+          </div>
+          <!-- Account Name -->
+          <div>
+            <h2 class="text-[#33B786] ml-8 font-bold">Adegbola Mateen</h2>
+            <p class="font-bold text-3xl">1234567890</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <!-- SEARCH BAR -->
+          <div
+            class="flex items-center border border-gray-200 bg-white gap-2 md:w-96 rounded-2xl h-8 pl-2"
+          >
+            <img src="./asset/fi-rr-search.png" alt="" class="h-6" />
+            <input
+              type="search"
+              placeholder="search"
+              class="w-full outline-none"
+            />
+          </div>
+          <!-- NOTIFICATION BELL -->
+          <img src="./asset/notification bell.png" alt="" class="h-6" />
+        </div>
+      </nav>
+
+      <main class="flex gap-40 p-10">
+        <!-- LEFT-SIDEBAR -->
+        <aside cla>
+          <a href="./dashboard.html" class="mb-13 flex gap-5 items-center"
+            ><img src="./asset/fi-rr-apps.png" alt="" class="h-7" />
+            <span class="text-2xl">Overview</span></a
+          >
+
+          <a href="./account.html" class="mb-13 flex gap-5 items-center"
+            ><img src="./asset/fi-rr-credit-card.png" alt="" class="h-7" />
+            <span class="text-2xl">Accounts</span></a
+          >
+
+          <a href="" class="mb-13 flex gap-5 items-center"
+            ><img src="./asset/Group 20.png" alt="" class="h-7" />
+            <span class="text-2xl text-[#33B786]">Transaction</span></a
+          >
+
+          <a href="" class="mb-13 flex gap-5 items-center"
+            ><img src="./asset/fi-rr-user.png" alt="" class="h-7" />
+            <span class="text-2xl">Profile</span></a
+          >
+
+          <!-- Logout Button -->
+          <a
+            href="#"
+            onclick="
+              document
+                .getElementById('logout-modal')
+                .classList.remove('hidden');
+              return false;
+            "
+            class="inline-block mt-4"
+          >
+            <div class="flex gap-3 items-center mt-[440px]">
+              <span class="text-4xl font-bold">←</span>
+              <h1 class="font-bold text-xl">Logout</h1>
+            </div>
+          </a>
+
+          <!-- Logout Popup Modal -->
+          <div
+            id="logout-modal"
+            class="fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden"
+          >
+            <div
+              class="bg-white border-2 border-[#0095ff] w-full max-w-sm p-6 rounded-3xl shadow-2xl"
+            >
+              <p class="text-gray-700 text-base font-medium text-center mb-8">
+                Are you sure you want to Logout?
+              </p>
+              <div class="flex items-center gap-4">
+                <button
+                  onclick="
+                    document
+                      .getElementById('logout-modal')
+                      .classList.add('hidden')
+                  "
+                  class="w-1/2 bg-[#d1d5db] hover:bg-gray-400 text-gray-800 font-semibold py-3 rounded-xl transition duration-200"
+                >
+                  Cancel
+                </button>
+                <a href="./index.html">
+                  <button
+                    onclick="
+                      alert('Logged out successfully!');
+                      document
+                        .getElementById('logout-modal')
+                        .classList.add('hidden');
+                    "
+                    class="w-40 bg-[#2ecc71] hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl transition duration-200"
+                  >
+                    Logout
+                  </button></a
+                >
+              </div>
+            </div>
+          </div>
+        </aside>
+        <!-- RIGHT CONTENET -->
+        <section>
+          <div class="flex gap-8">
+            <!-- MAIN ACCOUNT -->
+            <div class="bg-[#D4F3E7] p-10 w-96 items-center h-35 rounded-2xl">
+              <div class="flex justify-between items-center">
+                <h3 class="text-[#46237A] font-semibold text-2xl mb-2">
+                  Main Account
+                </h3>
+                <img src="./asset/fi-rr-eye-crossed.png" alt="" class="h-6" />
+              </div>
+              <p class="text-3xl font-bold">₦ 44,500.00</p>
+            </div>
+
+            <!-- SAVINGS -->
+            <div class="bg-[#D4F3E7] p-10 w-96 items-center h-35 rounded-2xl">
+              <div class="flex justify-between items-center">
+                <h3 class="text-[#46237A] font-semibold text-2xl mb-2">
+                  School Savings
+                </h3>
+                <img src="./asset/fi-rr-eye-crossed.png" alt="" class="h-6" />
+              </div>
+              <p class="text-3xl font-bold">₦ 44,500.00</p>
+            </div>
+
+            <!-- HOLIDAY PLAN -->
+            <div class="bg-[#D4F3E7] p-10 w-96 items-center h-35 rounded-2xl">
+              <div class="flex justify-between items-center">
+                <h3 class="text-[#46237A] font-semibold text-2xl mb-2">
+                  Holiday Plan
+                </h3>
+                <img src="./asset/fi-rr-eye-crossed.png" alt="" class="h-6" />
+              </div>
+              <p class="text-3xl font-bold">₦ 44,500.00</p>
+            </div>
+          </div>
+          <!------- TRANSACTIONS -------->
+          <h3 class="text-xl font-bold mb-4 mt-17">Transactions</h3>
+          <table class="w-full">
+            <tbody id="transaction-table-body">
+              <!-- JavaScript map function will inject rows here -->
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </section>
+
+    <!-------- MOBILE VIEW CONTAINER  ----------->
+    <div class="p-4 max-w-md mx-auto md:hidden block">
+      <!-- RESPONSIVE MOBILE NAV BAR HEADER -->
+      <header
+        class="flex flex-col gap-4 mb-6 bg-white p-4 rounded-2xl shadow-sm border border-gray-100"
+      >
+        <!--  Logo & Notifications -->
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-3">
+            <img src="./asset/logo (3).png" alt="Logo" class="h-8" />
+            <div>
+              <h2 class="text-[#33B786] font-bold text-xs">Adegbola Mateen</h2>
+              <p class="font-bold text-sm">1234567890</p>
+            </div>
+          </div>
+          <img
+            src="./asset/notification bell.png"
+            alt="Notifications"
+            class="h-5 cursor-pointer"
+          />
+        </div>
+
+        <!-- Search Bar -->
+        <div
+          class="flex items-center border border-gray-200 bg-[#f9f9f9] gap-2 w-full rounded-xl h-10 px-3"
+        >
+          <img
+            src="./asset/fi-rr-search.png"
+            alt="Search"
+            class="h-4 opacity-60"
+          />
+          <input
+            type="search"
+            placeholder="Search accounts, transactions..."
+            class="w-full text-xs outline-none bg-transparent"
+          />
+        </div>
+      </header>
+
+      <!-- SECTION TITLE -->
+      <div class="mb-4">
+        <h3 class="font-semibold text-2xl">Accounts</h3>
+      </div>
+
+      <!-- MAIN CONTENT AREA -->
+      <main class="space-y-6">
+        <!-- ACCOUNTS STACKED CARDS -->
+        <section>
+          <div class="grid grid-cols-1 gap-4">
+            <!-- MAIN ACCOUNT -->
+            <div class="bg-[#D4F3E7] p-10 w-full items-center h-35 rounded-2xl">
+              <div class="flex justify-between items-center">
+                <h3 class="text-[#46237A] font-semibold text-2xl mb-2">
+                  Main Account
+                </h3>
+                <img src="./asset/fi-rr-eye-crossed.png" alt="" class="h-6" />
+              </div>
+              <p class="text-3xl font-bold">₦ 44,500.00</p>
+            </div>
+
+            <!-- SAVINGS -->
+            <div class="bg-[#D4F3E7] p-10 w-full items-center h-35 rounded-2xl">
+              <div class="flex justify-between items-center">
+                <h3 class="text-[#46237A] font-semibold text-2xl mb-2">
+                  School Savings
+                </h3>
+                <img src="./asset/fi-rr-eye-crossed.png" alt="" class="h-6" />
+              </div>
+              <p class="text-3xl font-bold">₦ 44,500.00</p>
+            </div>
+
+            <!-- HOLIDAY PLAN -->
+            <div class="bg-[#D4F3E7] p-10 w-full items-center h-35 rounded-2xl">
+              <div class="flex justify-between items-center">
+                <h3 class="text-[#46237A] font-semibold text-2xl mb-2">
+                  Holiday Plan
+                </h3>
+                <img src="./asset/fi-rr-eye-crossed.png" alt="" class="h-6" />
+              </div>
+              <p class="text-3xl font-bold">₦ 44,500.00</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- TRANSACTIONS SECTION -->
+        <section
+          class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100"
+        >
+          <h3 class="text-xl font-bold mb-4">Transactions</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[480px]">
+              <tbody id="transactions-table-body">
+                <!-- JavaScript map function will inject rows here -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!--  NAVIGATION BAR -->
+        <nav
+          class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 shadow-lg flex justify-around items-center z-40 max-w-md mx-auto"
+        >
+          <a href="./dashboard.html" class="flex flex-col items-center gap-1">
+            <img src="./asset/fi-rr-apps.png" alt="Overview" class="h-5" />
+            <span class="text-[10px] text-gray-600">Overview</span>
+          </a>
+          <a href="./account.html" class="flex flex-col items-center gap-1">
+            <img
+              src="./asset/fi-rr-credit-card.png"
+              alt="Accounts"
+              class="h-5"
+            />
+            <span class="text-[10px] text-gray-600 font-semibold"
+              >Accounts</span
+            >
+          </a>
+          <a href="" class="flex flex-col items-center gap-1">
+            <img src="./asset/Group 20.png" alt="Transaction" class="h-5" />
+            <span class="text-[10px] text-[#33B786]">Transaction</span>
+          </a>
+          <a href="#" class="flex flex-col items-center gap-1">
+            <img src="./asset/fi-rr-user.png" alt="Profile" class="h-5" />
+            <span class="text-[10px] text-gray-600">Profile</span>
+          </a>
+        </nav>
+
+        <!-- LOGOUT BUTTON TRIGGER -->
+        <div class="pt-2 pb-25">
+          <a
+            href="#"
+            onclick="
+              document
+                .getElementById('logout-modal')
+                .classList.remove('hidden');
+              return false;
+            "
+            class="inline-block"
+          >
+            <div class="flex gap-3 items-center">
+              <h1 class="font-bold text-base">Logout</h1>
+            </div>
+          </a>
+        </div>
+      </main>
+    </div>
+
+    <!---- LOGOUT POPUP MODAL ---->
+    <div
+      id="logout-modal"
+      class="fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden"
+    >
+      <div
+        class="bg-white border-2 border-[#0095ff] w-full max-w-sm p-6 rounded-3xl shadow-2xl"
+      >
+        <p class="text-gray-700 text-base font-medium text-center mb-8">
+          Are you sure you want to Logout?
+        </p>
+        <div class="flex items-center gap-4">
+          <button
+            onclick="
+              document.getElementById('logout-modal').classList.add('hidden')
+            "
+            class="w-1/2 bg-[#d1d5db] hover:bg-gray-400 text-gray-800 font-semibold py-3 rounded-xl transition duration-200"
+          >
+            Cancel
+          </button>
+          <a href="./index.html" class="w-1/2">
+            <button
+              onclick="
+                alert('Logged out successfully!');
+                document.getElementById('logout-modal').classList.add('hidden');
+              "
+              class="w-full bg-[#2ecc71] hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl transition duration-200"
+            >
+              Logout
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="account.js"></script>
+  </body>
+</html>
