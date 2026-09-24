@@ -1,5 +1,8 @@
 const loginForm = document.getElementById("loginForm");
 const successModal = document.getElementById("successModal");
+const errorModal = document.getElementById("errorModal");
+const errorMessage = document.getElementById("errorMessage");
+const closeErrorModalBtn = document.getElementById("closeErrorModalBtn");
 const goToDashboardBtn = document.getElementById("goToDashboardBtn");
 
 loginForm.addEventListener("submit", (e) => {
@@ -10,9 +13,11 @@ loginForm.addEventListener("submit", (e) => {
 
   const savedData = localStorage.getItem("userProfile");
 
+  // Check if account exists
   if (!savedData) {
-    alert("No registered account found. Please register first.");
-    window.location.href = "./reg.html";
+    errorMessage.textContent =
+      "No registered account found. Please register first.";
+    errorModal.classList.remove("hidden");
     return;
   }
 
@@ -26,11 +31,27 @@ loginForm.addEventListener("submit", (e) => {
     // Show success modal popup
     successModal.classList.remove("hidden");
   } else {
-    alert("Invalid email or password.");
+    // Show incorrect input modal popup
+    errorMessage.textContent = "Invalid Email or Password!";
+    errorModal.classList.remove("hidden");
   }
 });
 
-// Redirect to profile/dashboard page when button is clicked
-goToDashboardBtn.addEventListener("click", () => {
-  window.location.href = "./profile.html";
+// Close Error Modal
+closeErrorModalBtn.addEventListener("click", () => {
+  errorModal.classList.add("hidden");
 });
+
+// Close error modal when clicking background backdrop
+errorModal.addEventListener("click", (e) => {
+  if (e.target === errorModal) {
+    errorModal.classList.add("hidden");
+  }
+});
+
+// Redirect to dashboard page when button is clicked
+if (goToDashboardBtn) {
+  goToDashboardBtn.addEventListener("click", () => {
+    window.location.href = "./dashboard.html";
+  });
+}
