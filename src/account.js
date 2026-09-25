@@ -177,7 +177,7 @@ function renderAccounts() {
               ${escapeHTML(account.name)}
             </p>
             <button onclick="toggleBalanceVisibility()" class="text-gray-500 hover:text-gray-700">
-              👁
+              <img src="./asset/fi-rr-eye-crossed.png" alt="" />
             </button>
           </div>
 
@@ -198,7 +198,7 @@ function renderAccounts() {
     })
     .join("");
 
-  // STATIC ADD ACCOUNT CARD (No longer binding to total bank balance)
+  // STATIC ADD ACCOUNT CARD
   const addAccountCard = `
     <div onclick="openAddAccountModal()" class="bg-gray-100/70 border border-dashed border-gray-300 rounded-2xl p-6 flex flex-col justify-between h-35 w-full cursor-pointer hover:bg-gray-100 transition">
       <div class="flex items-center gap-3 text-gray-600 font-semibold text-sm">

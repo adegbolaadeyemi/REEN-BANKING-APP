@@ -8,7 +8,7 @@
     <link rel="icon" href="./asset/logo (4).png" />
   </head>
 
-  <body class="bg-[#FFFFFFBF] text-[#252525]">
+  <body class="bg-white/75 text-[#252525]">
     <!------ DESKTOP ------>
     <div class="hidden md:block min-h-screen">
       <!-- TOP NAVIGATION -->
@@ -46,7 +46,7 @@
             <input
               id="desktop-search"
               type="text"
-              placeholder="Search..."
+              placeholder="Search transactions..."
               class="w-full bg-transparent outline-none text-sm"
             />
           </div>
@@ -74,15 +74,15 @@
       </header>
 
       <!-- MAIN WRAPPER -->
-      <div class="flex">
+      <div class="flex gap-20">
         <!-- SIDEBAR -->
         <aside class="w-64 px-7 py-10 flex flex-col min-h-[calc(100vh-120px)]">
-          <nav class="space-y-3">
+          <nav class="space-y-3 bg-[#ffffff]">
             <a
               href="./dashboard.html"
               class="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-gray-50 transition"
             >
-              <img src="./asset/fi-sr-apps(1).png" class="w-6 h-6" alt="" />
+              <img src="./asset/fi-rr-apps.png" class="w-6 h-6" alt="" />
               <span> Overview </span>
             </a>
 
@@ -98,7 +98,7 @@
               href="./transaction.html"
               class="flex items-center gap-4 px-4 py-3 rounded-xl text-[#33B786] font-semibold bg-emerald-50/50"
             >
-              <img src="./asset/Group 19.png" class="w-6 h-6" alt="" />
+              <img src="./asset/Group 20.png" class="w-6 h-6" alt="" />
               <span> Transactions </span>
             </a>
 
@@ -121,27 +121,52 @@
           </button>
         </aside>
 
-        <!-- CONTENT AREA -->
-        <main class="flex-1 px-10 py-4 max-w-4xl">
-          <div
-            class="bg-white/60 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 shadow-sm"
+        <!-- CONTENT -->
+        <main class="flex-1 px-10 py-4">
+          <!-- DYNAMIC ACCOUNTS GRID -->
+          <section
+            id="desktop-accounts-list"
+            class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
           >
-            <!-- HEADER -->
-            <div class="flex justify-between items-center mb-8">
-              <h2 class="text-2xl font-bold text-gray-800">Transactions</h2>
-              <a
-                href="./transaction.html"
-                class="text-[#33B786] text-xl hover:opacity-80 transition font-bold"
+            <!-- Rendered dynamically by renderAccounts() -->
+          </section>
+
+          <!-- TRANSACTIONS LIST SECTION -->
+          <section class="bg-white/50 rounded-2xl p-6">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-2xl font-bold">Transaction History</h3>
+
+              <!-- FILTER TABS -->
+              <div
+                class="flex gap-2 bg-gray-100 p-1 rounded-xl text-xs font-semibold"
               >
-                →
-              </a>
+                <button
+                  onclick="setFilter('all')"
+                  id="filter-all"
+                  class="px-4 py-2 rounded-lg bg-white shadow-sm text-[#33B786]"
+                >
+                  All
+                </button>
+                <button
+                  onclick="setFilter('income')"
+                  id="filter-income"
+                  class="px-4 py-2 rounded-lg text-gray-500 hover:text-gray-800"
+                >
+                  Income
+                </button>
+                <button
+                  onclick="setFilter('expense')"
+                  id="filter-expense"
+                  class="px-4 py-2 rounded-lg text-gray-500 hover:text-gray-800"
+                >
+                  Expenses
+                </button>
+              </div>
             </div>
 
-            <!-- DYNAMIC TRANSACTIONS LIST CONTAINER -->
-            <div id="transaction-list" class="divide-y divide-gray-100/80">
-              <!-- JS dynamically fills rows here matching screenshot layout -->
-            </div>
-          </div>
+            <!-- Dynamic Transaction List container -->
+            <div id="transaction-list" class="space-y-4"></div>
+          </section>
         </main>
       </div>
     </div>
@@ -184,20 +209,57 @@
         />
       </div>
 
-      <!-- MOBILE TRANSACTIONS SECTION -->
-      <section
-        class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm mt-4"
-      >
-        <div class="flex justify-between items-center mb-6">
-          <h2 class="text-xl font-bold text-gray-800">Transactions</h2>
-          <a href="./transaction.html" class="text-[#33B786] text-lg font-bold">
-            →
-          </a>
+      <!-- ACCOUNTS CARDS (MOBILE SCROLL) -->
+      <section class="mb-8">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-bold">Accounts</h2>
+          <button
+            onclick="openAddAccountModal()"
+            class="text-[#33B786] font-semibold text-sm"
+          >
+            + Add New
+          </button>
         </div>
 
-        <div id="mobile-transaction-list" class="divide-y divide-gray-100">
-          <!-- JS fills rows here -->
+        <div id="mobile-accounts-list" class="flex gap-4 overflow-x-auto pb-4">
+          <!-- Loaded dynamically -->
         </div>
+      </section>
+
+      <!-- MOBILE TRANSACTIONS -->
+      <section class="bg-white rounded-2xl p-4 border border-gray-100">
+        <div class="flex justify-between items-center mb-5">
+          <h2 class="text-xl font-bold">Transactions</h2>
+
+          <!-- MOBILE FILTERS -->
+          <div
+            class="flex gap-1 text-[10px] font-semibold bg-gray-100 p-1 rounded-lg"
+          >
+            <button
+              onclick="setFilter('all')"
+              id="m-filter-all"
+              class="px-2 py-1 rounded bg-white text-[#33B786]"
+            >
+              All
+            </button>
+            <button
+              onclick="setFilter('income')"
+              id="m-filter-income"
+              class="px-2 py-1 rounded text-gray-500"
+            >
+              In
+            </button>
+            <button
+              onclick="setFilter('expense')"
+              id="m-filter-expense"
+              class="px-2 py-1 rounded text-gray-500"
+            >
+              Out
+            </button>
+          </div>
+        </div>
+
+        <div id="mobile-transaction-list" class="space-y-5"></div>
       </section>
     </div>
 
@@ -209,7 +271,7 @@
         href="./dashboard.html"
         class="flex flex-col items-center gap-1 text-gray-500"
       >
-        <img src="./asset/fi-sr-apps(1).png" class="w-5" alt="" />
+        <img src="./asset/fi-rr-apps.png" class="w-5" alt="" />
         <span class="text-[10px]"> Overview </span>
       </a>
 
@@ -225,7 +287,7 @@
         href="./transaction.html"
         class="flex flex-col items-center gap-1 text-[#33B786]"
       >
-        <img src="./asset/Group 19.png" class="w-5" alt="" />
+        <img src="./asset/Group 20.png" class="w-5" alt="" />
         <span class="text-[10px]"> Transactions </span>
       </a>
 
@@ -236,7 +298,225 @@
         <img src="./asset/fi-rr-user.png" class="w-5" alt="" />
         <span class="text-[10px]"> Profile </span>
       </a>
+      <div
+        class="w-11 h-11 rounded-full bg-[#D4F3E7] flex items-center justify-center font-bold text-[#33B786]"
+        id="userInitials"
+      >
+        U
+      </div>
     </nav>
+
+    <!-- ================= ADD ACCOUNT MODAL ================= -->
+    <div
+      id="accountModal"
+      class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+    >
+      <div class="bg-white w-full max-w-md rounded-[32px] p-8 shadow-2xl">
+        <h2 class="text-3xl font-extrabold text-[#33B786] mb-6">Add Account</h2>
+
+        <div class="space-y-4">
+          <div>
+            <label class="text-sm font-bold text-gray-800 block mb-1">
+              Account Name
+            </label>
+            <input
+              id="accountName"
+              type="text"
+              placeholder="Enter name"
+              class="w-full border border-gray-300 rounded-xl p-3.5 outline-none focus:border-[#33B786] text-gray-700 placeholder-gray-300"
+            />
+          </div>
+
+          <div>
+            <label class="text-sm font-bold text-gray-800 block mb-1">
+              Short Description
+            </label>
+            <textarea
+              id="accountDescription"
+              rows="4"
+              placeholder="Description"
+              class="w-full border border-gray-300 rounded-xl p-3.5 outline-none focus:border-[#33B786] text-gray-700 placeholder-gray-300 resize-none"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 mt-8">
+          <button
+            type="button"
+            onclick="closeAddAccountModal()"
+            class="flex-1 bg-[#D1D5DB] text-gray-700 font-bold py-3.5 rounded-2xl hover:bg-gray-400 transition"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            onclick="createAccount()"
+            class="flex-1 bg-[#33B786] text-white font-bold py-3.5 rounded-2xl hover:bg-[#2ca276] transition"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= WITHDRAW MODAL ================= -->
+    <div
+      id="withdrawModal"
+      class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+    >
+      <div class="bg-white w-full max-w-md rounded-[32px] p-8 shadow-2xl">
+        <h2 class="text-3xl font-extrabold text-[#33B786] mb-6">Withdraw</h2>
+
+        <input type="hidden" id="withdrawAccountId" />
+
+        <div class="space-y-4">
+          <div>
+            <label class="text-sm font-bold text-gray-800 block mb-1">
+              Amount
+            </label>
+            <input
+              id="withdrawAmount"
+              type="number"
+              placeholder="100,000"
+              class="w-full border border-gray-300 rounded-xl p-3.5 outline-none focus:border-[#33B786] text-gray-700 placeholder-gray-300"
+            />
+          </div>
+
+          <div>
+            <label class="text-sm font-bold text-gray-800 block mb-1">
+              Account Number
+            </label>
+            <input
+              id="withdrawAccNumber"
+              type="text"
+              placeholder="00 00 00 00 00"
+              class="w-full border border-gray-300 rounded-xl p-3.5 outline-none focus:border-[#33B786] text-gray-700 placeholder-gray-300"
+            />
+          </div>
+
+          <div>
+            <label class="text-sm font-bold text-gray-800 block mb-1">
+              Account Name
+            </label>
+            <input
+              id="withdrawAccName"
+              type="text"
+              placeholder="Enter account name"
+              class="w-full border border-gray-300 rounded-xl p-3.5 outline-none focus:border-[#33B786] text-gray-700 placeholder-gray-300"
+            />
+          </div>
+
+          <div>
+            <label class="text-sm font-bold text-gray-800 block mb-1">
+              Bank
+            </label>
+            <div class="relative">
+              <select
+                id="withdrawBank"
+                class="w-full border border-gray-300 rounded-xl p-3.5 outline-none focus:border-[#33B786] text-gray-400 appearance-none bg-white pr-10"
+              >
+                <option value="" disabled selected>Bank Name</option>
+                <option value="GTBank">Guaranty Trust Bank</option>
+                <option value="FirstBank">First Bank of Nigeria</option>
+                <option value="Access">Access Bank</option>
+                <option value="Zenith">Zenith Bank</option>
+                <option value="UBA">United Bank for Africa</option>
+                <option value="Kuda">Kuda Microfinance Bank</option>
+                <option value="Opay">OPay</option>
+              </select>
+              <div
+                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400"
+              >
+                ▼
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 mt-8">
+          <button
+            type="button"
+            onclick="closeWithdrawModal()"
+            class="flex-1 bg-[#D1D5DB] text-gray-700 font-bold py-3.5 rounded-2xl hover:bg-gray-400 transition"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            onclick="submitWithdrawal()"
+            class="flex-1 bg-[#33B786] text-white font-bold py-3.5 rounded-2xl hover:bg-[#2ca276] transition"
+          >
+            Withdraw
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= FUND ACCOUNT MODAL ================= -->
+    <div
+      id="fundModal"
+      class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+    >
+      <div class="bg-white w-full max-w-md rounded-[32px] p-8 shadow-2xl">
+        <h2 class="text-3xl font-extrabold text-[#33B786] mb-6">
+          Fund Account
+        </h2>
+
+        <input type="hidden" id="fundAccountId" />
+
+        <div class="space-y-4">
+          <div>
+            <label class="text-sm font-bold text-gray-800 block mb-1">
+              Amount to Deposit
+            </label>
+            <input
+              id="fundAmount"
+              type="number"
+              placeholder="50,000"
+              class="w-full border border-gray-300 rounded-xl p-3.5 outline-none focus:border-[#33B786] text-gray-700 placeholder-gray-300"
+            />
+          </div>
+
+          <div>
+            <label class="text-sm font-bold text-gray-800 block mb-1">
+              Funding Source
+            </label>
+            <div class="relative">
+              <select
+                id="fundSource"
+                class="w-full border border-gray-300 rounded-xl p-3.5 outline-none focus:border-[#33B786] text-gray-700 appearance-none bg-white pr-10"
+              >
+                <option value="Debit Card">Debit Card</option>
+                <option value="Bank Transfer">Bank Transfer</option>
+                <option value="USSD">USSD Code</option>
+              </select>
+              <div
+                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400"
+              >
+                ▼
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 mt-8">
+          <button
+            type="button"
+            onclick="closeFundModal()"
+            class="flex-1 bg-[#D1D5DB] text-gray-700 font-bold py-3.5 rounded-2xl hover:bg-gray-400 transition"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            onclick="submitFunding()"
+            class="flex-1 bg-[#33B786] text-white font-bold py-3.5 rounded-2xl hover:bg-[#2ca276] transition"
+          >
+            Fund
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- ================= LOGOUT MODAL ================= -->
     <div
@@ -271,8 +551,6 @@
         </div>
       </div>
     </div>
-
-    <!-- SCRIPT LINK -->
     <script src="./transaction.js"></script>
   </body>
 </html>
