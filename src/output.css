@@ -299,6 +299,9 @@
   .left-0 {
     left: 0px;
   }
+  .left-10 {
+    left: calc(var(--spacing) * 10);
+  }
   .z-10 {
     z-index: 10;
   }
@@ -1160,6 +1163,9 @@
   .bg-\[url\(\'\.\/asset\/Rectangle159\.png\'\)\] {
     background-image: url('./asset/Rectangle159.png');
   }
+  .bg-\[url\(\'\.\/asset\/_\.png\'\)\] {
+    background-image: url('./asset/_.png');
+  }
   .bg-\[url\(\'\.\/asset\/register\.png\'\)\] {
     background-image: url('./asset/register.png');
   }
@@ -1173,6 +1179,9 @@
   }
   .bg-cover {
     background-size: cover;
+  }
+  .bg-no-repeat {
+    background-repeat: no-repeat;
   }
   .object-cover {
     object-fit: cover;
