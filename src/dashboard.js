@@ -88,7 +88,7 @@ function generateAccountNumber() {
     return savedNumber;
   }
 
-  const number = "10" + Math.floor(100000000 + Math.random() * 900000000);
+  const number = "9" + Math.floor(100000000 + Math.random() * 900000000);
 
   localStorage.setItem("reenAccountNumber", number);
 
