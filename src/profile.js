@@ -388,6 +388,7 @@ function showNotification(message) {
   toast.textContent = message;
 
   document.body.appendChild(toast);
+  d;
   setTimeout(() => toast.remove(), 3000);
 }
 
