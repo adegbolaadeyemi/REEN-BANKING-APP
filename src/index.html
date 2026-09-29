@@ -8,19 +8,33 @@
     <link rel="icon" href="./asset/logo (4).png" />
   </head>
   <body>
+    <style>
+      @keyframes slideup {
+        from {
+          opacity: 0;
+          transform: translate(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translate(0);
+        }
+      }
+    </style>
     <!-- Hero Section -->
-    <section class="bg-[#D4F3E7] top-0 bottom-0">
+    <section class="bg-[#D4F3E7] w-full">
       <!-- NAV BAR -->
       <nav
-        class="pt-10 md:px-15 px-3 list-none flex md:gap-6 gap-3 md:justify-between"
+        class="pt-8 md:px-15 px-3 top-0 backdrop-blur-xs fixed z-50 w-full list-none flex md:gap-6 gap-3 md:justify-between"
       >
         <div class="flex md:gap-18 gap-5 sm:gap-3 items-center">
-          <img src="./asset/logo (3).png" alt="" class="md:h-8 h-6 sm:" />
+          <img src="./asset/logo (3).png" alt="" class="md:h-12 h-6 sm:" />
           <li><a href="#About">About</a></li>
           <li><a href="">Contact Us</a></li>
         </div>
         <a href="./log-in.html"
-          ><button class="border rounded w-15 h-8 md:h-10 md:w-25">
+          ><button
+            class="border border-[#33B786] rounded w-15 h-8 md:h-10 md:w-25"
+          >
             Login
           </button></a
         >
@@ -28,10 +42,12 @@
       <div class="flex flex-col md:flex md:flex-row gap-5 md:justify-between">
         <div class="md:px-15 px-3 mt-25 md:mt-30">
           <h1 class="text-xl font-bold text-[#33B786]">Reen Bank</h1>
-          <h3 class="md:text-7xl text-4xl line-height:2 font-semibold">
+          <h3
+            class="md:text-7xl text-4xl line-height:2 font-semibold hover:scale-105 duration-300"
+          >
             Experience hassle-free banking
           </h3>
-          <p class="mt-10">
+          <p class="mt-10 hover:scale-105 duration-300">
             Experience simple, secure, and stress-free banking. Say goodbye to
             long queues and complex procedures and hello to hassle-free banking
             with Reen Bank.
@@ -39,14 +55,14 @@
           <div class="gap-4 md:mt-8 mt-0 flex">
             <a href="./reg.html"
               ><button
-                class="rounded w-15 h-8 md:h-8 md:w-28 text-white font-semibold bg-[#33B786] hidden md:block"
+                class="hover:scale-105 duration-300 shadow-lg rounded w-15 h-8 md:h-8 md:w-28 text-white font-semibold bg-[#33B786] hidden md:block"
               >
                 Get Started
               </button></a
             >
             <a href="#learn-more"
               ><button
-                class="rounded border border-[#33B786] text-[#33B786] font-semibold w-15 h-8 md:h-8 md:w-28 md:block hidden"
+                class="hover:scale-105 duration-300 shadow-lg rounded border border-[#33B786] text-[#33B786] font-semibold w-15 h-8 md:h-8 md:w-28 md:block hidden"
               >
                 learn More →
               </button></a
@@ -58,7 +74,7 @@
           <img
             src="./asset/Reen_Bank_Credit_Card_Mockup_v01 1.png"
             alt=""
-            class="h-full"
+            class="mt-10 transition duration-700 ease-out hover:rotate-6 hover:scale-105 hover:-translate-y-2 hover:rotate-y-6 animate-[slideup_1s_ease-out]"
           />
         </div>
         <div class="gap-4 mt-8 mb-10 flex md:hidden px-3">
@@ -90,7 +106,7 @@
               >Savings Account</span
             >
           </div>
-          <p class="md:px-15">
+          <p class="md:px-15 hover:scale-105 duration-300">
             Reen Bank could offer a variety of savings accounts with different
             interest rates and terms, allowing customers to save money and earn
             interest over time. These accounts could include features like
@@ -106,7 +122,7 @@
               >Personal Loans</span
             >
           </div>
-          <p class="md:px-15">
+          <p class="md:px-15 hover:scale-105 duration-300">
             Reen Bank could offer personal loans for a variety of purposes, such
             as debt consolidation, home improvements, or major purchases.
             Customers could apply online and receive a decision quickly, with
@@ -123,7 +139,7 @@
               >Credit Cards</span
             >
           </div>
-          <p class="md:px-15">
+          <p class="md:px-15 hover:scale-105 duration-300">
             Reen Bank could offer credit cards with different rewards programs
             and benefits, such as cash back, travel rewards, or low interest
             rates. Customers could manage their cards online and receive alerts
@@ -138,7 +154,7 @@
               >Investment Services</span
             >
           </div>
-          <p class="md:px-15">
+          <p class="md:px-15 hover:scale-105 duration-300">
             Reen Bank could offer investment services for customers looking to
             grow their wealth over time. These services could include mutual
             funds, exchange-traded funds, and other investment vehicles, with
@@ -155,7 +171,7 @@
               >Online Bill Pay</span
             >
           </div>
-          <p class="md:px-15">
+          <p class="md:px-15 hover:scale-105 duration-300">
             Reen Bank could offer a convenient online bill pay service, allowing
             customers to pay bills and manage expenses from their computer or
             mobile device. This service could include features like automatic
@@ -170,7 +186,7 @@
               >Business Banking</span
             >
           </div>
-          <p class="md:px-15">
+          <p class="md:px-15 hover:scale-105 duration-300">
             Reen Bank could offer a range of banking services for small and
             medium-sized businesses, including checking accounts, business
             loans, merchant services, and cash management tools. These services
@@ -185,7 +201,7 @@
     <section
       id="learn-more"
       bg
-      class="bg-[#D4F3E7] bg-[url('./asset/_.png')] bg-no-repeat z-50 mt-15 py-15 md:py-20 px-4 md:px-20 relative overflow-hidden"
+      class="bg-[#D4F3E7] bg-[url('./asset/_.png')] bg-no-repeat mt-15 py-15 md:py-20 px-4 md:px-20 relative overflow-hidden"
     >
       <h1 class="md:text-5xl text-3xl font-semibold mb-10">FAQs</h1>
 
@@ -274,7 +290,7 @@
       </div>
 
       <div
-        class="md:w-[50%] w-[35] bg-cover pt-30 pb-10 md:pt-60 md:pb-15 h-full bg-[url('./asset/Rectangle159.png')] rounded-tl"
+        class="md:w-[50%] w-[35] bg-cover pt-30 pb-10 md:pt-60 md:pb-15 h-full bg-[url('./asset/Rectangle159.png')] transition duration-700 hover:scale-105 rounded-tl"
       >
         <h3 class="text-white font-semibold md:px-15 px-10 md:mb-3">
           New to Reen Bank?

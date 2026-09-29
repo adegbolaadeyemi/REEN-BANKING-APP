@@ -171,7 +171,7 @@ function renderAccounts() {
         index % 2 === 0 ? "border-l-4 border-[#46237A]" : "";
 
       return `
-        <div class="bg-[#D4F3E7] rounded-2xl p-6 w-full relative flex flex-col justify-between h-35 ${isPurpleBorder}">
+        <div class="bg-[#D4F3E7] rounded-2xl p-7 w-full relative flex flex-col justify-between h-45 ${isPurpleBorder}">
           <div class="flex justify-between items-center">
             <p class="text-[#46237A] font-semibold text-base">
               ${escapeHTML(account.name)}
@@ -200,12 +200,12 @@ function renderAccounts() {
 
   // STATIC ADD ACCOUNT CARD
   const addAccountCard = `
-    <div onclick="openAddAccountModal()" class="bg-gray-100/70 border border-dashed border-gray-300 rounded-2xl p-6 flex flex-col justify-between h-35 w-full cursor-pointer hover:bg-gray-100 transition">
-      <div class="flex items-center gap-3 text-gray-600 font-semibold text-sm">
-        <span class="text-xl">+</span>
+    <div onclick="openAddAccountModal()" class="bg-gray-100/70 border border-dashed border-gray-300 rounded-2xl p-6 flex flex-col justify-between h-45 w-full cursor-pointer hover:bg-gray-100 transition">
+      <div class="flex items-center gap-10 text-gray-600 font-semibold text-sm">
+        <span class="text-3xl">+</span>
         <span>Add Account</span>
       </div>
-      <p class="text-xl font-medium text-gray-400 my-auto">Create New Account</p>
+      <p class="text-3xl font-medium mt-13 text-gray-600 my-auto">₦ 00,000.00</p>
     </div>
   `;
 
@@ -535,7 +535,7 @@ function closeLogoutModal() {
 
 function logout() {
   localStorage.removeItem(USER_KEY);
-  window.location.href = "./index.html";
+  window.location.href = "./log-in.html";
 }
 
 function toggleMobileSearch() {

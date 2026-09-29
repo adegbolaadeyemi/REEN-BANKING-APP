@@ -724,7 +724,7 @@ function closeLogoutModal() {
 function logout() {
   localStorage.setItem("reenLoggedOut", "true");
 
-  window.location.href = "./index.html";
+  window.location.href = "./log-in.html";
 }
 
 // ============================================================

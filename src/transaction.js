@@ -563,7 +563,7 @@ function closeLogoutModal() {
 
 function logout() {
   localStorage.removeItem(USER_KEY);
-  window.location.href = "./index.html";
+  window.location.href = "./log-in.html";
 }
 
 function toggleMobileSearch() {

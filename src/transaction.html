@@ -8,7 +8,7 @@
     <link rel="icon" href="./asset/logo (4).png" />
   </head>
 
-  <body class="bg-white/75 text-[#252525]">
+  <body class="bg-[#D4F3E7] bg-[url('./asset/profile.png')] text-[#252525]">
     <!------ DESKTOP ------>
     <div class="hidden md:block min-h-screen">
       <!-- TOP NAVIGATION -->
@@ -65,11 +65,13 @@
           </button>
 
           <!-- USER AVATAR / INITIAL -->
-          <div
-            class="w-11 h-11 rounded-full bg-[#D4F3E7] flex items-center justify-center overflow-hidden"
-          >
-            <span id="userInitial" class="font-bold text-[#33B786]">U</span>
-          </div>
+          <a href="./profile.html">
+            <div
+              class="w-11 h-11 rounded-full bg-[#D4F3E7] flex items-center justify-center overflow-hidden"
+            >
+              <span id="userInitial" class="font-bold text-[#33B786]">U</span>
+            </div>
+          </a>
         </div>
       </header>
 
@@ -77,7 +79,7 @@
       <div class="flex gap-20">
         <!-- SIDEBAR -->
         <aside class="w-64 px-7 py-10 flex flex-col min-h-[calc(100vh-120px)]">
-          <nav class="space-y-3 bg-[#ffffff]">
+          <nav class="space-y-3">
             <a
               href="./dashboard.html"
               class="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-gray-50 transition"
@@ -209,7 +211,7 @@
         />
       </div>
 
-      <!-- ACCOUNTS CARDS (MOBILE SCROLL) -->
+      <!-- ACCOUNTS CARDS -->
       <section class="mb-8">
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-xl font-bold">Accounts</h2>
@@ -298,12 +300,14 @@
         <img src="./asset/fi-rr-user.png" class="w-5" alt="" />
         <span class="text-[10px]"> Profile </span>
       </a>
-      <div
-        class="w-11 h-11 rounded-full bg-[#D4F3E7] flex items-center justify-center font-bold text-[#33B786]"
-        id="userInitials"
-      >
-        U
-      </div>
+      <a href="./profile.html">
+        <div
+          class="w-11 h-11 rounded-full bg-[#D4F3E7] flex items-center justify-center font-bold text-[#33B786]"
+          id="userInitials"
+        >
+          U
+        </div>
+      </a>
     </nav>
 
     <!-- ================= ADD ACCOUNT MODAL ================= -->
