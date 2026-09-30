@@ -52,7 +52,11 @@
           </div>
 
           <!-- NOTIFICATION -->
-          <button id="notificationBtn" class="relative">
+          <button
+            id="notificationBtn"
+            class="relative"
+            onclick="toggleNotifications()"
+          >
             <img
               src="./asset/notification bell.png"
               class="h-5"
@@ -69,9 +73,15 @@
             <div
               class="w-11 h-11 rounded-full bg-[#D4F3E7] flex items-center justify-center overflow-hidden"
             >
+              <img
+                id="userAvatar"
+                src=""
+                alt="Profile"
+                class="hidden w-full h-full object-cover"
+              />
               <span id="userInitial" class="font-bold text-[#33B786]">U</span>
-            </div></a
-          >
+            </div>
+          </a>
         </div>
       </header>
 
@@ -176,11 +186,22 @@
           <button onclick="toggleMobileSearch()">
             <img src="./asset/fi-rr-search.png" class="w-5" alt="Search" />
           </button>
-          <img
-            src="./asset/notification bell.png"
-            class="w-5"
-            alt="Notifications"
-          />
+
+          <button
+            onclick="toggleNotifications()"
+            class="relative"
+            aria-label="Notifications"
+          >
+            <img
+              src="./asset/notification bell.png"
+              class="w-5"
+              alt="Notifications"
+            />
+            <span
+              id="mobileNotificationDot"
+              class="hidden absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"
+            ></span>
+          </button>
         </div>
       </header>
 
@@ -259,12 +280,19 @@
         <img src="./asset/fi-rr-user.png" class="w-5" alt="" />
         <span class="text-[10px]"> Profile </span>
       </a>
+
       <a href="./profile.html">
         <div
-          class="w-11 h-11 rounded-full bg-[#D4F3E7] flex items-center justify-center font-bold text-[#33B786]"
-          id="userInitials"
+          class="w-11 h-11 rounded-full bg-[#D4F3E7] flex items-center justify-center font-bold text-[#33B786] overflow-hidden"
+          id="userInitialsContainer"
         >
-          U
+          <img
+            id="mobileUserAvatar"
+            src=""
+            alt="Profile"
+            class="hidden w-full h-full object-cover"
+          />
+          <span id="userInitials">U</span>
         </div>
       </a>
     </nav>
@@ -311,6 +339,7 @@
           >
             Cancel
           </button>
+
           <button
             type="button"
             onclick="createAccount()"
@@ -322,7 +351,7 @@
       </div>
     </div>
 
-    <!-- ================= WITHDRAW MODAL  ================= -->
+    <!-- ================= WITHDRAW MODAL ================= -->
     <div
       id="withdrawModal"
       class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
@@ -373,6 +402,7 @@
             <label class="text-sm font-bold text-gray-800 block mb-1">
               Bank
             </label>
+
             <div class="relative">
               <select
                 id="withdrawBank"
@@ -387,6 +417,7 @@
                 <option value="Kuda">Kuda Microfinance Bank</option>
                 <option value="Opay">OPay</option>
               </select>
+
               <div
                 class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400"
               >
@@ -404,6 +435,7 @@
           >
             Cancel
           </button>
+
           <button
             type="button"
             onclick="submitWithdrawal()"
@@ -444,6 +476,7 @@
             <label class="text-sm font-bold text-gray-800 block mb-1">
               Funding Source
             </label>
+
             <div class="relative">
               <select
                 id="fundSource"
@@ -453,6 +486,7 @@
                 <option value="Bank Transfer">Bank Transfer</option>
                 <option value="USSD">USSD Code</option>
               </select>
+
               <div
                 class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400"
               >
@@ -470,12 +504,72 @@
           >
             Cancel
           </button>
+
           <button
             type="button"
             onclick="submitFunding()"
             class="flex-1 bg-[#33B786] text-white font-bold py-3.5 rounded-2xl hover:bg-[#2ca276] transition"
           >
             Fund
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= NOTIFICATION DRAWER / MODAL ================= -->
+    <div
+      id="notificationModal"
+      class="hidden fixed inset-0 bg-black/30 backdrop-blur-xs z-50 flex justify-end"
+      onclick="closeNotificationsOnBackdrop(event)"
+    >
+      <div
+        class="bg-white w-full max-w-sm h-full shadow-2xl flex flex-col p-6 animate-in slide-in-from-right duration-200"
+      >
+        <div
+          class="flex items-center justify-between pb-4 border-b border-gray-100"
+        >
+          <div class="flex items-center gap-2">
+            <h3 class="text-xl font-bold text-gray-800">Notifications</h3>
+
+            <span
+              id="notificationBadge"
+              class="bg-[#33B786] text-white text-xs px-2 py-0.5 rounded-full font-semibold"
+            >
+              0
+            </span>
+          </div>
+
+          <button
+            onclick="toggleNotifications()"
+            class="text-gray-400 hover:text-gray-600 text-2xl font-bold cursor-pointer"
+          >
+            &times;
+          </button>
+        </div>
+
+        <!-- Notification List -->
+        <div
+          id="notificationList"
+          class="flex-1 overflow-y-auto py-4 space-y-3"
+        >
+          <!-- Dynamically Rendered Notifications -->
+        </div>
+
+        <div
+          class="pt-3 border-t border-gray-100 flex justify-between items-center text-xs"
+        >
+          <button
+            onclick="markAllNotificationsAsRead()"
+            class="text-[#33B786] font-semibold hover:underline cursor-pointer"
+          >
+            Mark all as read
+          </button>
+
+          <button
+            onclick="clearNotifications()"
+            class="text-gray-400 hover:text-red-500 transition cursor-pointer"
+          >
+            Clear all
           </button>
         </div>
       </div>
@@ -494,6 +588,7 @@
         </div>
 
         <h2 class="text-xl font-bold">Logout?</h2>
+
         <p class="text-gray-500 text-sm mt-2">
           Are you sure you want to logout?
         </p>
@@ -505,6 +600,7 @@
           >
             Cancel
           </button>
+
           <button
             onclick="logout()"
             class="bg-red-500 text-white py-3 rounded-xl font-semibold hover:bg-red-600 transition"
@@ -514,8 +610,6 @@
         </div>
       </div>
     </div>
-
-    <!-- LINKING JAVASCRIPT FILE -->
     <script src="./account.js"></script>
   </body>
 </html>
