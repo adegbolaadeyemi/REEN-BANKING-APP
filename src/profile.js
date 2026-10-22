@@ -328,8 +328,8 @@ function renderProfile() {
 
   const name = userProfile.name || "Maureen Oguche";
   const email = userProfile.email || "oguchemaureenm@gmail.com";
-  const phone = userProfile.phone || "+234 803 041 1314";
-  const gender = userProfile.gender || "Female";
+  const phone = userProfile.phone || "+234 123 456 7890";
+  const gender = userProfile.gender || "??";
   const avatar = userProfile.avatar || "";
 
   const accountNumber = generateAccountNumber();
